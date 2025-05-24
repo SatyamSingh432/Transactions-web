@@ -11,10 +11,9 @@ const Welcome = () => {
         <BarCharts />
       </div>
       <div className="py-4 bg-white flex justify-center items-center rounded-lg">
-        <Form />
+        <Form showbtn="+ Add Expense" title="Save Transaction" btnName="Save" />
       </div>
       <h1 className="text-2xl pb-4 pt-4">Transactions</h1>
-
       <div className="bg-white rounded-lg">
         <TransactionList />
         <TransactionList />

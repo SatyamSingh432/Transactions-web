@@ -14,27 +14,27 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const Form = () => {
+const Form = ({ showbtn, title, btnName }) => {
   return (
-    
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button className="bg-black text-white" variant="outline">
-            + Add Expense
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Save Transaction</DialogTitle>
-            {/* <DialogDescription>
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button className="bg-black text-white" variant="outline">
+          {showbtn}
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>{title}</DialogTitle>
+          {/* <DialogDescription>
             Make changes to your profile here. Click save when you're done.
           </DialogDescription> */}
-          </DialogHeader>
-          <form
-      onSubmit={() => {
-        console.log("satyam");
-      }}
-    >
+        </DialogHeader>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            console.log("satyam");
+          }}
+        >
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">
@@ -61,11 +61,11 @@ const Form = () => {
             <Textarea placeholder="Description..." />
           </div>
           <DialogFooter>
-            <Button type="submit">Save changes</Button>
+            <Button type="submit">{btnName} </Button>
           </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </form>
+        </form>
+      </DialogContent>
+    </Dialog>
   );
 };
 
