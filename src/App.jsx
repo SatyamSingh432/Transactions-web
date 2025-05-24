@@ -1,6 +1,11 @@
 import "./App.css";
+import Welcome from "./pages/Welcome";
 function App() {
-  return <div className="font-large text-xl">wer</div>;
+  return (
+    <>
+      <Welcome />
+    </>
+  );
 }
 
 export default App;
