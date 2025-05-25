@@ -1,7 +1,8 @@
 import React from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-
+import { addTransaction } from "../utils/Apis";
 import {
   Dialog,
   DialogContent,
@@ -14,9 +15,30 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const Form = ({ showbtn, title, btnName }) => {
+const Form = ({ expData = {}, setExpData, showbtn, title, btnName }) => {
+  const [open, setOpen] = useState(false);
+
+  const changeHandler = async (e) => {
+    const { name, value } = e.target;
+    setExpData((prev) => ({ ...prev, [name]: value }));
+  };
+  const addExpHandler = async (e) => {
+    e.preventDefault();
+    console.log(expData);
+    try {
+      const res = await addTransaction(expData);
+      console.log("Transaction added:", res);
+      if (res._id) {
+        setOpen(false);
+      }
+      setExpData({ amount: "", date: "", description: "" });
+    } catch (err) {
+      console.error("Error adding transaction:", err);
+    }
+  };
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild className="cursor-pointer">
         <Button
           className="bg-black text-white cursor-pointer"
@@ -32,12 +54,7 @@ const Form = ({ showbtn, title, btnName }) => {
             Make changes to your profile here. Click save when you're done.
           </DialogDescription> */}
         </DialogHeader>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            console.log("satyam");
-          }}
-        >
+        <form onSubmit={addExpHandler}>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">
@@ -46,7 +63,9 @@ const Form = ({ showbtn, title, btnName }) => {
               <Input
                 type="number"
                 id="name"
-                //   value="Pedro Duarte"
+                name="amount"
+                value={expData.amount || ""}
+                onChange={changeHandler}
                 className="col-span-3"
               />
             </div>
@@ -56,12 +75,20 @@ const Form = ({ showbtn, title, btnName }) => {
               </Label>
               <Input
                 type="date"
+                name="date"
                 id="username"
+                onChange={changeHandler}
+                value={expData.date || ""}
                 //   value="@peduarte"
                 className="col-span-3"
               />
             </div>
-            <Textarea placeholder="Description..." />
+            <Textarea
+              name="description"
+              value={expData.description || ""}
+              placeholder="Description..."
+              onChange={changeHandler}
+            />
           </div>
           <DialogFooter>
             <Button className="cursor-pointer" type="submit">
