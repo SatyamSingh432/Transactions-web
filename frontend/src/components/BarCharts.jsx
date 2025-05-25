@@ -12,7 +12,7 @@ const BarCharts = ({ listData }) => {
     { name: "Jun", amt: 0 },
     { name: "Jul", amt: 0 },
     { name: "Aug", amt: 0 },
-    { name: "Sep", amt: 0 },
+    { name: "Sept", amt: 0 },
     { name: "Oct", amt: 0 },
     { name: "Nov", amt: 0 },
     { name: "Dec", amt: 0 },
@@ -24,6 +24,7 @@ const BarCharts = ({ listData }) => {
       listData.forEach((item) => {
         const date = new Date(item.date);
         const month = date.toLocaleString("default", { month: "short" });
+        console.log(month);
         monthlyTotals.map((ele) => {
           if (month === ele.name) {
             ele.amt += Number(item.amount);
