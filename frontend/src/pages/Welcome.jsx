@@ -30,7 +30,7 @@ const Welcome = () => {
     <div className="bg-gray-400 h-screen w-screen p-6">
       <h1 className="text-2xl pb-4">Expense Tracker</h1>
       <div className="w-full h-[25%]">
-        <BarCharts />
+        <BarCharts listData={listData} />
       </div>
       <div className="py-4 bg-white flex justify-center items-center rounded-lg">
         <Form

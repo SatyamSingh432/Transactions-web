@@ -1,89 +1,49 @@
 import React from "react";
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis } from "recharts";
+import { useEffect, useState } from "react";
 
-const data = [
-  {
-    name: "JAN",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "FEB",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "MAR",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "APR",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "MAY",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "JUN",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "JUL",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "AUG",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "SEP",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: "OCT",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: "NOV",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: "DEC",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+const BarCharts = ({ listData }) => {
+  const monthlyTotals = [
+    { name: "Jan", amt: 0 },
+    { name: "Feb", amt: 0 },
+    { name: "Mar", amt: 0 },
+    { name: "Apr", amt: 0 },
+    { name: "May", amt: 0 },
+    { name: "Jun", amt: 0 },
+    { name: "Jul", amt: 0 },
+    { name: "Aug", amt: 0 },
+    { name: "Sep", amt: 0 },
+    { name: "Oct", amt: 0 },
+    { name: "Nov", amt: 0 },
+    { name: "Dec", amt: 0 },
+  ];
 
-const BarCharts = () => {
+  const [chartData, setChartData] = useState(monthlyTotals);
+  useEffect(() => {
+    const getMonthlyTotals = (listData) => {
+      listData.forEach((item) => {
+        const date = new Date(item.date);
+        const month = date.toLocaleString("default", { month: "short" });
+        monthlyTotals.map((ele) => {
+          if (month === ele.name) {
+            ele.amt += Number(item.amount);
+          }
+        });
+      });
+      return monthlyTotals;
+    };
+    const data1 = getMonthlyTotals(listData);
+    setChartData(data1);
+  }, [listData]);
+
   return (
     <>
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart width={50} height={40} data={data}>
+        {console.log(chartData)}
+        <BarChart width={50} height={40} data={chartData}>
           <XAxis dataKey="name" />
           <YAxis />
-          <Bar dataKey="uv" fill="#8884d8" />
+          <Bar dataKey="amt" fill="#8884d8" />
         </BarChart>
       </ResponsiveContainer>
     </>
