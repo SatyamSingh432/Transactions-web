@@ -6,31 +6,42 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+// import { getTransactions } from "../utils/Apis";
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  ["January", 1],
+  ["February", 2],
+  ["March", 3],
+  ["April", 4],
+  ["May", 5],
+  ["June", 6],
+  ["July", 7],
+  ["August", 8],
+  ["September", 9],
+  ["October", 10],
+  ["November", 11],
+  ["December", 12],
 ];
 
-const SelectMonth = () => {
+const SelectMonth = ({ setMonth }) => {
+  const changeHandler = async (val) => {
+    setMonth(val);
+    // try {
+    //   const res = await getTransactions(val);
+    //   setListData(res);
+    //   console.log(res);
+    // } catch (error) {
+    //   console.error(`somenting went wrong in select month ${error}`);
+    // }
+  };
   return (
-    <Select>
+    <Select onValueChange={changeHandler}>
       <SelectTrigger className="w-[200px] border border-black cursor-pointer">
         <SelectValue placeholder="Select a month" />
       </SelectTrigger>
-      <SelectContent className="max-h-48 overflow-y-auto">
+      <SelectContent className="max-h-48 overflow-y-auto ">
         {months.map((month, index) => (
-          <SelectItem key={index} value={month.toLowerCase()}>
-            {month}
+          <SelectItem key={index} value={month[1]}>
+            {month[0]}
           </SelectItem>
         ))}
       </SelectContent>

@@ -12,18 +12,19 @@ const Welcome = () => {
     date: "",
     description: "",
   });
+  const [month, setMonth] = useState("");
   const [listData, setListData] = useState([]);
   useEffect(() => {
     async function transactionDataList() {
       try {
-        const res = await getTransactions();
+        const res = await getTransactions(month);
         setListData(res);
       } catch (error) {
         console.error("Failed to fetch transactions:", error);
       }
     }
     transactionDataList();
-  }, [expData]);
+  }, [expData, month]);
   return (
     <div className="bg-gray-400 h-screen w-screen p-6">
       <h1 className="text-2xl pb-4">Expense Tracker</h1>
@@ -42,7 +43,11 @@ const Welcome = () => {
       <h1 className="text-2xl pb-4 pt-4">Transactions</h1>
       <div className="bg-white rounded-lg flex flex-col gap-4 p-4 ">
         <div className="w-full flex justify-end">
-          <SelectMonth className="bg-white-500 " />
+          <SelectMonth
+            setMonth={setMonth}
+            // setListData={setListData}
+            className="bg-white-500 "
+          />
         </div>
 
         <ScrollArea className="h-60  rounded-md border ">
