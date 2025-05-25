@@ -21,7 +21,7 @@ const TransactionList = () => {
         {/* <Button className="text-sm  ">EDIT</Button>
          */}
         <Form showbtn="EDIT" title="Edit Transaction" btnName="Save Changes" />
-        <Button className="text-sm ">DELETE</Button>
+        <Button className="text-sm cursor-pointer">DELETE</Button>
       </div>
       <hr className="col-span-3  border-gray-400" />
     </div>

@@ -24,7 +24,7 @@ const months = [
 const SelectMonth = () => {
   return (
     <Select>
-      <SelectTrigger className="w-[200px] border border-black">
+      <SelectTrigger className="w-[200px] border border-black cursor-pointer">
         <SelectValue placeholder="Select a month" />
       </SelectTrigger>
       <SelectContent className="max-h-48 overflow-y-auto">

@@ -17,8 +17,11 @@ import { Label } from "@/components/ui/label";
 const Form = ({ showbtn, title, btnName }) => {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button className="bg-black text-white" variant="outline">
+      <DialogTrigger asChild className="cursor-pointer">
+        <Button
+          className="bg-black text-white cursor-pointer"
+          variant="outline"
+        >
           {showbtn}
         </Button>
       </DialogTrigger>
@@ -61,7 +64,9 @@ const Form = ({ showbtn, title, btnName }) => {
             <Textarea placeholder="Description..." />
           </div>
           <DialogFooter>
-            <Button type="submit">{btnName} </Button>
+            <Button className="cursor-pointer" type="submit">
+              {btnName}{" "}
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>
