@@ -21,6 +21,18 @@ const data = [
     amt: 2290,
   },
   {
+    name: "APR",
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    name: "MAY",
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
     name: "JUN",
     uv: 2780,
     pv: 3908,
@@ -58,18 +70,6 @@ const data = [
   },
   {
     name: "DEC",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: "Page K",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: "Page L",
     uv: 3490,
     pv: 4300,
     amt: 2100,
