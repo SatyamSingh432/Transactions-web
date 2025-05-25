@@ -13,6 +13,7 @@ const Welcome = () => {
     description: "",
   });
   const [month, setMonth] = useState("");
+  const [deleteMsg, setDeleteMsg] = useState("");
   const [listData, setListData] = useState([]);
   useEffect(() => {
     async function transactionDataList() {
@@ -24,7 +25,7 @@ const Welcome = () => {
       }
     }
     transactionDataList();
-  }, [expData, month]);
+  }, [expData, month, deleteMsg]);
   return (
     <div className="bg-gray-400 h-screen w-screen p-6">
       <h1 className="text-2xl pb-4">Expense Tracker</h1>
@@ -56,8 +57,11 @@ const Welcome = () => {
               <TransactionList
                 key={ele._id}
                 amount={ele.amount}
-                date={ele.date}
+                date={new Date(ele.date).toISOString().split("T")[0]}
                 description={ele.description}
+                id={ele._id}
+                setDeleteMsg={setDeleteMsg}
+                setExpData={setExpData}
               />
             );
           })}
