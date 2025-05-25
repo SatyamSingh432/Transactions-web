@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import TransactionList from "../components/TransactionList";
 import BarCharts from "../components/BarCharts";
 import Form from "../components/Form";
@@ -14,13 +14,13 @@ const Welcome = () => {
         <Form showbtn="+ Add Expense" title="Save Transaction" btnName="Save" />
       </div>
       <h1 className="text-2xl pb-4 pt-4">Transactions</h1>
-      <div className="bg-white rounded-lg">
-        <TransactionList />
-        <TransactionList />
-        <TransactionList />
-        <TransactionList />
-        <TransactionList />
-      </div>
+      {/* <div className=""> */}
+      <ScrollArea className="h-72  rounded-md border bg-white rounded-lg">
+        {[...Array(10)].map((_, index) => {
+          return <TransactionList key={index} />;
+        })}
+      </ScrollArea>
+      {/* </div> */}
     </div>
   );
 };
