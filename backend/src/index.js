@@ -9,7 +9,7 @@ app.use(cors());
 dotenv.config();
 app.use(express.json());
 
-app.use("/api", transaction);
+app.use("/api/transactionamt", transaction);
 
 mongoose.connect(process.env.MONGODB_URL).then(() => {
   console.log("Mongodb Connected");

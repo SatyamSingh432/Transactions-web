@@ -1,7 +1,7 @@
 import express from "express";
 import Expense from "../models/transaction.js";
 const router = express.Router();
-router.post("/transactionamt", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const transaction = new Expense(req.body);
     const saved = await transaction.save();
@@ -11,4 +11,21 @@ router.post("/transactionamt", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const { month } = req.query;
+
+    let transactions = await Expense.find().sort({ date: -1 });
+
+    if (month) {
+      transactions = transactions.filter((t) => {
+        return new Date(t.date).getMonth() + 1 === parseInt(month);
+      });
+    }
+
+    res.json(transactions);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 export default router;
