@@ -28,4 +28,25 @@ router.get("/", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+router.put("/:id", async (req, res) => {
+  try {
+    const updated = await Expense.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.json(updated);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    await Expense.findByIdAndDelete(req.params.id);
+    res.json({ message: "Deleted successfully" });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
 export default router;
