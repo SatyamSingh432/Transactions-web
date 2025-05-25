@@ -1,0 +1,9 @@
+import mongoose from "mongoose";
+
+const Transaction = new mongoose.Schema({
+  amount: { type: Number, required: true },
+  date: { type: Date, required: true },
+  description: { type: String, required: true },
+});
+const Expense = mongoose.model("Expense", Transaction);
+export default Expense;
