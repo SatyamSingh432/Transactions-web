@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
   try {
     const { month } = req.query;
 
-    let transactions = await Expense.find().sort({ date: -1 });
+    let transactions = await Expense.find().sort({ time: -1 });
 
     if (month) {
       transactions = transactions.filter((t) => {
