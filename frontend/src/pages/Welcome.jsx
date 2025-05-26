@@ -6,6 +6,7 @@ import BarCharts from "../components/BarCharts";
 import Form from "../components/Form";
 import SelectMonth from "../components/SelectMonth";
 import { getTransactions } from "../utils/Apis";
+import PieChartFig from "../components/PieChartFig";
 const Welcome = () => {
   const [expData, setExpData] = useState({
     amount: "",
@@ -15,7 +16,19 @@ const Welcome = () => {
   });
   const [month, setMonth] = useState("");
   const [deleteMsg, setDeleteMsg] = useState("");
+  const [fullData, setFullData] = useState([]);
   const [listData, setListData] = useState([]);
+  useEffect(() => {
+    async function transactionDataList() {
+      try {
+        const res = await getTransactions();
+        setFullData(res);
+      } catch (error) {
+        console.error("Failed to fetch transactions:", error);
+      }
+    }
+    transactionDataList();
+  }, [listData]);
   useEffect(() => {
     async function transactionDataList() {
       try {
@@ -30,8 +43,9 @@ const Welcome = () => {
   return (
     <div className="bg-gray-400 h-screen w-screen p-6">
       <h1 className="text-2xl pb-4">Expense Tracker</h1>
-      <div className="w-full h-[25%]">
+      <div className="w-full grid grid-cols-[3fr_1fr] justify-center ]">
         <BarCharts listData={listData} />
+        <PieChartFig fullData={fullData} />
       </div>
       <div className="py-4 bg-white flex justify-center items-center rounded-lg">
         <Form
