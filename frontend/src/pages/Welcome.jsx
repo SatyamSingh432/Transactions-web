@@ -53,7 +53,7 @@ const Welcome = () => {
   return (
     <div className="bg-gray-400 h-screen w-screen p-6">
       <h1 className="text-2xl pb-4">Expense Tracker</h1>
-      <div className="w-full grid grid-cols-[1.2fr_2fr_.8fr] justify-center  rounded-lg">
+      <div className="w-full grid grid-cols-[1.3fr_1.9fr_.8fr] justify-center  rounded-lg">
         <ExpensesCard pieChartData={pieChartData} />
         <BarCharts listData={fullData} />
         <div className="pb-2">
