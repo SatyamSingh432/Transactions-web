@@ -5,7 +5,7 @@ const Transaction = new mongoose.Schema({
   date: { type: Date, required: true },
   category: {
     type: String,
-    enum: ["Food", "Travel", "Entertainment"],
+    enum: ["Food", "travel", "Entertainment"],
     required: true,
   },
   description: { type: String, required: true },
