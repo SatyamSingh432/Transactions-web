@@ -1,11 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { PieChart, Pie, Cell } from "recharts";
-const data = [
-  { category: "travel", value: 0 },
-  { category: "Food", value: 0 },
-  { category: "Entertainment", value: 0 },
-];
 
 const COLORS = ["#FF9304", "#FDE006", "#A000FF"];
 
@@ -17,7 +12,6 @@ const renderCustomizedLabel = ({
   innerRadius,
   outerRadius,
   percent,
-  //   index,
 }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -35,9 +29,11 @@ const renderCustomizedLabel = ({
     </text>
   );
 };
-export default function PieChartFig({ fullData }) {
-  const [pieChartData, setPieChartData] = useState(data);
-
+export default function PieChartFig({
+  fullData,
+  pieChartData,
+  setPieChartData,
+}) {
   useEffect(() => {
     if (fullData.length > 0) {
       const newData = [
@@ -52,7 +48,7 @@ export default function PieChartFig({ fullData }) {
           match.value += Number(ele.amount);
         }
       });
-
+      console.log(newData);
       setPieChartData(newData);
     }
   }, [fullData]);
@@ -69,7 +65,7 @@ export default function PieChartFig({ fullData }) {
         fill="#8884d8"
         dataKey="value"
       >
-        {data.map((entry, index) => (
+        {pieChartData.map((entry, index) => (
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>

@@ -8,6 +8,7 @@ import SelectMonth from "../components/SelectMonth";
 import { getTransactions } from "../utils/Apis";
 import PieChartFig from "../components/PieChartFig";
 import Indicator from "../components/Indicator";
+import ExpensesCard from "../components/ExpensesCard";
 const Welcome = () => {
   const [expData, setExpData] = useState({
     amount: "",
@@ -15,10 +16,18 @@ const Welcome = () => {
     category: "",
     description: "",
   });
+
+  const [pieChartData, setPieChartData] = useState([
+    { category: "travel", value: 0 },
+    { category: "Food", value: 0 },
+    { category: "Entertainment", value: 0 },
+  ]);
+
   const [month, setMonth] = useState("");
   const [deleteMsg, setDeleteMsg] = useState("");
   const [fullData, setFullData] = useState([]);
   const [listData, setListData] = useState([]);
+
   useEffect(() => {
     async function transactionDataList() {
       try {
@@ -44,14 +53,19 @@ const Welcome = () => {
   return (
     <div className="bg-gray-400 h-screen w-screen p-6">
       <h1 className="text-2xl pb-4">Expense Tracker</h1>
-      <div className="w-full grid grid-cols-[3fr_1fr] justify-center ]">
+      <div className="w-full grid grid-cols-[1.2fr_2fr_.8fr] justify-center  rounded-lg">
+        <ExpensesCard pieChartData={pieChartData} />
         <BarCharts listData={listData} />
         <div className="pb-2">
-          <PieChartFig fullData={fullData} />
+          <PieChartFig
+            pieChartData={pieChartData}
+            setPieChartData={setPieChartData}
+            fullData={fullData}
+          />
           <Indicator />
         </div>
       </div>
-      <div className="py-4 bg-white flex justify-center items-center rounded-lg">
+      <div className="py-1 bg-white flex justify-center items-center rounded-lg">
         <Form
           expData={expData}
           setExpData={setExpData}

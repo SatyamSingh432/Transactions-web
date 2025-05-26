@@ -61,9 +61,9 @@ const Form = ({ expData = {}, setExpData, showbtn, title, btnName }) => {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
-          {/* <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DialogDescription> */}
+          <DialogDescription>
+            click on save to add transaction
+          </DialogDescription>
         </DialogHeader>
         <form onSubmit={addExpHandler}>
           <div className="grid gap-4 py-4">
