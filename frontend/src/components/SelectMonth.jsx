@@ -23,7 +23,7 @@ const months = [
 ];
 
 const SelectMonth = ({ setMonth }) => {
-  const changeHandler = async (val) => {
+  const changeHandler = (val) => {
     setMonth(val);
     // try {
     //   const res = await getTransactions(val);

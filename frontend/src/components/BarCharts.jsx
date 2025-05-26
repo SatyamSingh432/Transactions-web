@@ -24,7 +24,6 @@ const BarCharts = ({ listData }) => {
       listData.forEach((item) => {
         const date = new Date(item.date);
         const month = date.toLocaleString("default", { month: "short" });
-        console.log(month);
         monthlyTotals.map((ele) => {
           if (month === ele.name) {
             ele.amt += Number(item.amount);
@@ -40,7 +39,6 @@ const BarCharts = ({ listData }) => {
   return (
     <>
       <ResponsiveContainer width="100%" height="100%">
-        {console.log(chartData)}
         <BarChart width={50} height={40} data={chartData}>
           <XAxis dataKey="name" />
           <YAxis />
