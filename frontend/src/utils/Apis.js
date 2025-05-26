@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:8080";
-// const API_URL = "https://yardstick-4l5u.onrender.com";
+// const API_URL = "http://localhost:8080";
+const API_URL = "https://yardstick-4l5u.onrender.com";
 
 export const addTransaction = async ({
   amount,
