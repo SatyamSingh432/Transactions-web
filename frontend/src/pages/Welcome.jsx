@@ -70,7 +70,7 @@ const Welcome = () => {
           />
         </div>
 
-        <ScrollArea className="h-60  rounded-md border ">
+        <ScrollArea className="h-50  rounded-md border ">
           {listData.map((ele) => {
             return (
               <TransactionList
