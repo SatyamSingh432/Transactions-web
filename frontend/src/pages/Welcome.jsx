@@ -7,6 +7,7 @@ import Form from "../components/Form";
 import SelectMonth from "../components/SelectMonth";
 import { getTransactions } from "../utils/Apis";
 import PieChartFig from "../components/PieChartFig";
+import Indicator from "../components/Indicator";
 const Welcome = () => {
   const [expData, setExpData] = useState({
     amount: "",
@@ -45,7 +46,10 @@ const Welcome = () => {
       <h1 className="text-2xl pb-4">Expense Tracker</h1>
       <div className="w-full grid grid-cols-[3fr_1fr] justify-center ]">
         <BarCharts listData={listData} />
-        <PieChartFig fullData={fullData} />
+        <div className="pb-2">
+          <PieChartFig fullData={fullData} />
+          <Indicator />
+        </div>
       </div>
       <div className="py-4 bg-white flex justify-center items-center rounded-lg">
         <Form
