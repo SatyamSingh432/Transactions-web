@@ -75,31 +75,45 @@ const Welcome = () => {
         />
       </div>
       <h1 className="text-2xl pb-4 pt-4">Transactions</h1>
-      <div className="bg-white rounded-lg flex flex-col gap-4 p-4 ">
-        <div className="w-full flex justify-end">
-          <SelectMonth
-            setMonth={setMonth}
-            // setListData={setListData}
-            className="bg-white-500 "
-          />
-        </div>
-
-        <ScrollArea className="h-50  rounded-md border ">
-          {listData.map((ele) => {
+      <div className="grid grid-cols-[1fr_3fr] gap-4">
+        <div className="bg-white rounded-lg flex flex-col gap-2 p-4 border">
+          <h1 className="text-xl font-semibold">Recent Transactions</h1>
+          {fullData.slice(0, 5).map((ele, index) => {
             return (
-              <TransactionList
-                key={ele._id}
-                amount={ele.amount}
-                date={new Date(ele.date).toISOString().split("T")[0]}
-                description={ele.description}
-                id={ele._id}
-                category={ele.category}
-                setDeleteMsg={setDeleteMsg}
-                setExpData={setExpData}
-              />
+              <div key={index} className="border-2 rounded-sm p-1">
+                {index + 1}. You spent{" "}
+                <span className="font-semibold">{ele.amount}</span> $ on{" "}
+                {ele.category}
+              </div>
             );
           })}
-        </ScrollArea>
+        </div>
+        <div className="bg-white rounded-lg flex flex-col gap-4 p-4 ">
+          <div className="w-full flex justify-end">
+            <SelectMonth
+              setMonth={setMonth}
+              // setListData={setListData}
+              className="bg-white-500 "
+            />
+          </div>
+
+          <ScrollArea className="h-50  rounded-md border ">
+            {listData.map((ele) => {
+              return (
+                <TransactionList
+                  key={ele._id}
+                  amount={ele.amount}
+                  date={new Date(ele.date).toISOString().split("T")[0]}
+                  description={ele.description}
+                  id={ele._id}
+                  category={ele.category}
+                  setDeleteMsg={setDeleteMsg}
+                  setExpData={setExpData}
+                />
+              );
+            })}
+          </ScrollArea>
+        </div>
       </div>
     </div>
   );

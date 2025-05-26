@@ -21,7 +21,7 @@ const TransactionList = ({
     }
   };
   return (
-    <div className=" grid grid-cols-[1fr_1fr_1fr]  px-4 py-2 text-xs gap-y-1 ">
+    <div className=" grid grid-cols-[1.4fr_1fr_0.5fr]  px-4 py-2 text-xs gap-y-1 ">
       <div className="rounded-lg flex justify-start gap-4 items-center ">
         <div>
           <span className="text-sm font-semibold ">Amount:</span>{" "}
