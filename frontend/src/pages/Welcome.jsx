@@ -10,6 +10,7 @@ const Welcome = () => {
   const [expData, setExpData] = useState({
     amount: "",
     date: "",
+    category: "",
     description: "",
   });
   const [month, setMonth] = useState("");
@@ -60,6 +61,7 @@ const Welcome = () => {
                 date={new Date(ele.date).toISOString().split("T")[0]}
                 description={ele.description}
                 id={ele._id}
+                category={ele.category}
                 setDeleteMsg={setDeleteMsg}
                 setExpData={setExpData}
               />

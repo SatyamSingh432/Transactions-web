@@ -5,6 +5,13 @@ import { Textarea } from "@/components/ui/textarea";
 // import { addTransaction } from "../utils/Apis";
 import { updateTransaction } from "../utils/Apis";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -25,12 +32,14 @@ const EditForm = ({
   btnName,
   id,
   setExpData,
+  category,
 }) => {
   const [open, setOpen] = useState(false);
 
   const [formData, setFormData] = useState({
     amount: amount || "",
     date: date || "",
+    category: category || "",
     description: description || "",
   });
 
@@ -38,8 +47,12 @@ const EditForm = ({
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const changeCategoryHandler = (val) => {
+    setFormData((prev) => ({ ...prev, category: val }));
+  };
+
   const updateHandler = async (e) => {
-    console.log(formData);
     e.preventDefault();
     try {
       const res = await updateTransaction(id, formData);
@@ -100,6 +113,16 @@ const EditForm = ({
                 className="col-span-3"
               />
             </div>
+            <Select name="category" onValueChange={changeCategoryHandler}>
+              <SelectTrigger className="w-[200px] border border-black cursor-pointer">
+                <SelectValue placeholder="Category" />
+              </SelectTrigger>
+              <SelectContent className="max-h-48 overflow-y-auto ">
+                <SelectItem value="travel">Travel</SelectItem>
+                <SelectItem value="Entertainment">Entertainment</SelectItem>
+                <SelectItem value="Food">Food</SelectItem>
+              </SelectContent>
+            </Select>
             <Textarea
               name="description"
               value={formData.description}

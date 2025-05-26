@@ -4,6 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { addTransaction } from "../utils/Apis";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -22,16 +29,20 @@ const Form = ({ expData = {}, setExpData, showbtn, title, btnName }) => {
     const { name, value } = e.target;
     setExpData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const changeCategoryHandler = (val) => {
+    setExpData((prev) => ({ ...prev, category: val }));
+  };
+
   const addExpHandler = async (e) => {
     e.preventDefault();
-    console.log(expData);
     try {
       const res = await addTransaction(expData);
       console.log("Transaction added:", res);
       if (res._id) {
         setOpen(false);
       }
-      setExpData({ amount: "", date: "", description: "" });
+      setExpData({ amount: "", date: "", category: "", description: "" });
     } catch (err) {
       console.error("Error adding transaction:", err);
     }
@@ -83,6 +94,16 @@ const Form = ({ expData = {}, setExpData, showbtn, title, btnName }) => {
                 className="col-span-3"
               />
             </div>
+            <Select name="category" onValueChange={changeCategoryHandler}>
+              <SelectTrigger className="w-[200px] border border-black cursor-pointer">
+                <SelectValue placeholder="Category" />
+              </SelectTrigger>
+              <SelectContent className="max-h-48 overflow-y-auto ">
+                <SelectItem value="travel">Travel</SelectItem>
+                <SelectItem value="Entertainment">Entertainment</SelectItem>
+                <SelectItem value="Food">Food</SelectItem>
+              </SelectContent>
+            </Select>
             <Textarea
               name="description"
               value={expData.description || ""}

@@ -9,6 +9,7 @@ const TransactionList = ({
   id,
   setDeleteMsg,
   setExpData,
+  category = "",
 }) => {
   const deleteHandler = async () => {
     console.log("dsad");
@@ -30,6 +31,10 @@ const TransactionList = ({
           <span className="text-sm font-semibold">Date:</span>
           {`${date}`}
         </div>
+        <div>
+          <span className="text-sm font-semibold">Category:</span>
+          {`${category}`}
+        </div>
       </div>
       <div className="flex items-center">
         <span className="text-sm font-semibold pr-2">Decription:</span>{" "}
@@ -47,6 +52,7 @@ const TransactionList = ({
           title="Edit Transaction"
           btnName="Save Changes"
           setExpData={setExpData}
+          category={category}
         />
         <Button className="text-sm cursor-pointer" onClick={deleteHandler}>
           DELETE

@@ -1,10 +1,16 @@
-const API_URL = "https://yardstick-4l5u.onrender.com";
+const API_URL = "http://localhost:8080";
+// const API_URL = "https://yardstick-4l5u.onrender.com";
 
-export const addTransaction = async ({ amount, date, description }) => {
+export const addTransaction = async ({
+  amount,
+  date,
+  category,
+  description,
+}) => {
   const res = await fetch(`${API_URL}/api/transactionamt`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ amount, date, description }),
+    body: JSON.stringify({ amount, date, category, description }),
   });
   const resJson = await res.json();
   console.log(resJson);
