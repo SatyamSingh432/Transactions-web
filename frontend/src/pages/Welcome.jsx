@@ -55,7 +55,7 @@ const Welcome = () => {
       <h1 className="text-2xl pb-4">Expense Tracker</h1>
       <div className="w-full grid grid-cols-[1.2fr_2fr_.8fr] justify-center  rounded-lg">
         <ExpensesCard pieChartData={pieChartData} />
-        <BarCharts listData={listData} />
+        <BarCharts listData={fullData} />
         <div className="pb-2">
           <PieChartFig
             pieChartData={pieChartData}
