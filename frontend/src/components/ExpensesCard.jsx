@@ -7,17 +7,21 @@ const ExpensesCard = ({ pieChartData }) => {
         <span className="text-xl font-semibold ">Total Expense :</span>{" "}
         {pieChartData[0].value + pieChartData[1].value + pieChartData[2].value}$
       </div>
-      <div className="border-2 rounded-sm p-1">
-        <span className="text-lg font-medium ">Amount spent on Travel :</span>{" "}
-        {pieChartData[0].value} $
+      <div className="border-2 rounded-sm p-">
+        <span className="text-sm md:text-md font-medium ">
+          Amount spent on Travel:
+        </span>{" "}
+        {pieChartData[0].value}$
       </div>
       <div className="border-2 rounded-sm p-1">
-        <span className="text-lg font-medium">Amount spent on Food :</span>{" "}
+        <span className="text-sm md:text-md font-medium">
+          Amount spent on Food:
+        </span>{" "}
         {pieChartData[1].value}$
       </div>
       <div className="border-2 rounded-sm p-1">
-        <span className="text-lg font-medium">
-          Amount spent on Entertainment :
+        <span className="text-sm md:text-md font-medium">
+          Amount spent on Entertainment:
         </span>{" "}
         {pieChartData[2].value} $
       </div>

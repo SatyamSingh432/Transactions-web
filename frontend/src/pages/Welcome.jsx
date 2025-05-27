@@ -51,11 +51,14 @@ const Welcome = () => {
     transactionDataList();
   }, [expData, month, deleteMsg]);
   return (
-    <div className="bg-gray-400 h-screen w-screen p-6">
+    <div className="bg-gray-400  w-screen p-6">
       <h1 className="text-2xl pb-4">Expense Tracker</h1>
-      <div className="w-full grid lg:grid-cols-[1.3fr_1.9fr_.8fr] justify-center sm:grid-cols-1 md:grid-cols-[2fr_2fr] rounded-lg">
+      <div className="w-full grid lg:grid-cols-[1.3fr_1.9fr_.8fr] gap-x-0 justify-center sm:grid-cols-1 sm:gap-x-2 md:grid-cols-[2fr_2fr] rounded-lg">
         <ExpensesCard pieChartData={pieChartData} />
-        <BarCharts listData={fullData} />
+        <div className="h-[200px] rounded-lg border-1">
+          <BarCharts listData={fullData} />
+        </div>
+
         <div className="pb-2 flex flex-col md:col-span-2 lg:col-span-1 items-center">
           <PieChartFig
             pieChartData={pieChartData}
