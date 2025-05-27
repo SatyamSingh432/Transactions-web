@@ -21,8 +21,8 @@ const TransactionList = ({
     }
   };
   return (
-    <div className=" grid grid-cols-[1.4fr_1fr_0.5fr]  px-4 py-1 text-xs gap-y-1 ">
-      <div className="rounded-lg flex justify-start gap-4 items-center ">
+    <div className="grid md:grid-cols-1 lg:grid-cols-[1.4fr_1fr_0.5fr] px-4 py-1 text-xs lg:gap-y-1 md:gap-y-2 ">
+      <div className="rounded-lg grid grid-cols-1  justify-start gap-4 items-center ">
         <div>
           <span className="text-sm font-semibold ">Amount:</span>{" "}
           {`${amount} $`}
@@ -40,7 +40,7 @@ const TransactionList = ({
         <span className="text-sm font-semibold pr-2">Decription:</span>{" "}
         {`${description}`}
       </div>
-      <div className="flex justify-center gap-4 items-center ">
+      <div className="flex justify-center gap-4 items-center md:col-span-2 lg:col-span-1">
         {/* <Button className="text-sm  ">EDIT</Button>
          */}
         <EditForm
@@ -58,7 +58,7 @@ const TransactionList = ({
           DELETE
         </Button>
       </div>
-      <hr className="col-span-3  border-gray-400" />
+      <hr className="col-span-3  border-gray-400 md:col-span-2 lg:col-span-3" />
     </div>
   );
 };

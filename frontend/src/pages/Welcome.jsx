@@ -53,10 +53,10 @@ const Welcome = () => {
   return (
     <div className="bg-gray-400 h-screen w-screen p-6">
       <h1 className="text-2xl pb-4">Expense Tracker</h1>
-      <div className="w-full grid grid-cols-[1.3fr_1.9fr_.8fr] justify-center  rounded-lg">
+      <div className="w-full grid lg:grid-cols-[1.3fr_1.9fr_.8fr] justify-center sm:grid-cols-1 md:grid-cols-[2fr_2fr] rounded-lg">
         <ExpensesCard pieChartData={pieChartData} />
         <BarCharts listData={fullData} />
-        <div className="pb-2">
+        <div className="pb-2 flex flex-col md:col-span-2 lg:col-span-1 items-center">
           <PieChartFig
             pieChartData={pieChartData}
             setPieChartData={setPieChartData}
@@ -75,7 +75,7 @@ const Welcome = () => {
         />
       </div>
       <h1 className="text-2xl pb-4 pt-4">Transactions</h1>
-      <div className="grid grid-cols-[1fr_3fr] gap-4">
+      <div className="grid lg:grid-cols-[1fr_3fr] md:grid-cols-1 gap-4">
         <div className="bg-white rounded-lg flex flex-col gap-2 p-4 border">
           <h1 className="text-xl font-semibold">Recent Transactions</h1>
           {fullData.slice(0, 5).map((ele, index) => {
