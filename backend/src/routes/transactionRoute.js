@@ -1,5 +1,6 @@
 import express from "express";
 import Expense from "../models/transaction.js";
+import data1 from "../routes/news_sources_127.json"
 const router = express.Router();
 router.post("/", async (req, res) => {
   try {
@@ -48,5 +49,7 @@ router.delete("/:id", async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
-
+router.get('/news-sources', (req, res) => {
+  res.json(data1);
+});
 export default router;
