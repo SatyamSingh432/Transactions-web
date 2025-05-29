@@ -1,5 +1,385 @@
 export const data =[
   {
+    "id": "talksport",
+    "name": "TalkSport",
+    "description": "Tune in to the world's biggest sports radio station for the latest sports news, transfer rumours & exclusive interviews.",
+    "url": "http://talksport.com",
+    "category": "sports"
+  },
+  {
+    "id": "techcrunch",
+    "name": "TechCrunch",
+    "description": "TechCrunch is a leading technology media property, dedicated to obsessively profiling startups, reviewing new Internet products, and breaking tech news.",
+    "url": "https://techcrunch.com",
+    "category": "technology"
+  },
+  {
+    "id": "techcrunch-cn",
+    "name": "TechCrunch (CN)",
+    "description": "TechCrunch is a leading technology media property, dedicated to obsessively profiling startups, reviewing new Internet products, and breaking tech news.",
+    "url": "https://techcrunch.cn",
+    "category": "technology"
+  },
+  {
+    "id": "techradar",
+    "name": "TechRadar",
+    "description": "The latest technology news and reviews, covering computing, home entertainment systems, gadgets and more.",
+    "url": "https://www.techradar.com",
+    "category": "technology"
+  },
+  {
+    "id": "the-american-conservative",
+    "name": "The American Conservative",
+    "description": "Realism and reform. A new voice for a new generation of conservatives.",
+    "url": "http://www.theamericanconservative.com/",
+    "category": "general"
+  },
+  {
+    "id": "the-globe-and-mail",
+    "name": "The Globe And Mail",
+    "description": "The Globe and Mail offers the most authoritative news in Canada, featuring national and international news.",
+    "url": "https://www.theglobeandmail.com",
+    "category": "general"
+  },
+  {
+    "id": "the-hill",
+    "name": "The Hill",
+    "description": "The Hill is a top US political website, read by the White House and more lawmakers than any other site — vital for policy, politics and election campaigns.",
+    "url": "https://thehill.com",
+    "category": "general"
+  },
+  {
+    "id": "the-hindu",
+    "name": "The Hindu",
+    "description": "The Hindu: Latest news, analysis, comment, in-depth reporting, arts, cinema and more from India's national newspaper.",
+    "url": "http://www.thehindu.com",
+    "category": "general"
+  },
+  {
+    "id": "the-huffington-post",
+    "name": "The Huffington Post",
+    "description": "The Huffington Post is a politically liberal American news website and blog, featuring columnists and various topics.",
+    "url": "http://www.huffingtonpost.com",
+    "category": "general"
+  },
+  {
+    "id": "the-irish-times",
+    "name": "The Irish Times",
+    "description": "The Irish Times online. Latest news including sport, analysis, business, weather and more from the definitive brand of quality news in Ireland.",
+    "url": "https://www.irishtimes.com",
+    "category": "general"
+  },
+  {
+    "id": "the-jerusalem-post",
+    "name": "The Jerusalem Post",
+    "description": "The Jerusalem Post is the leading online newspaper covering current news from the Middle East and all over the Jewish world.",
+    "url": "https://www.jpost.com/",
+    "category": "general"
+  },
+  {
+    "id": "the-lad-bible",
+    "name": "The Lad Bible",
+    "description": "The LAD Bible is one of the largest communities for entertainment and viral content in the world. Send us your funniest pictures and videos!",
+    "url": "https://www.theladbible.com",
+    "category": "entertainment"
+  },
+  {
+    "id": "the-next-web",
+    "name": "The Next Web",
+    "description": "The Next Web is one of the world’s largest online publications that delivers news and analysis on Internet technology, business and culture.",
+    "url": "http://thenextweb.com",
+    "category": "technology"
+  },
+  {
+    "id": "the-sport-bible",
+    "name": "The Sport Bible",
+    "description": "TheSPORTbible is one of the largest communities for sports fans, bringing you the latest news and viral content. Send us your sporting pictures and videos!",
+    "url": "https://www.thesportbible.com",
+    "category": "sports"
+  },
+  {
+    "id": "the-times-of-india",
+    "name": "The Times of India",
+    "description": "Times of India brings the Latest News and Top Breaking headlines on Politics and Current Affairs in India and around the World.",
+    "url": "http://timesofindia.indiatimes.com",
+    "category": "general"
+  },
+  {
+    "id": "the-verge",
+    "name": "The Verge",
+    "description": "The Verge covers the intersection of technology, science, art, and culture.",
+    "url": "http://www.theverge.com",
+    "category": "technology"
+  },
+  {
+    "id": "the-wall-street-journal",
+    "name": "The Wall Street Journal",
+    "description": "WSJ online coverage of breaking news and current headlines from the US and around the world. Top stories, photos, videos, detailed analysis and in-depth reporting.",
+    "url": "https://www.wsj.com",
+    "category": "business"
+  },
+  {
+    "id": "the-washington-post",
+    "name": "The Washington Post",
+    "description": "Breaking news and analysis on politics, business, world national news, entertainment, and more.",
+    "url": "https://www.washingtonpost.com",
+    "category": "general"
+  },
+  {
+    "id": "the-washington-times",
+    "name": "The Washington Times",
+    "description": "The Washington Times delivers breaking news and commentary on the issues that affect the future of our nation.",
+    "url": "https://www.washingtontimes.com/",
+    "category": "general"
+  },
+  {
+    "id": "time",
+    "name": "Time",
+    "description": "Breaking news and analysis from TIME.com. Politics, world news, photos, video, tech reviews, health, science and entertainment news.",
+    "url": "http://time.com",
+    "category": "general"
+  },
+  {
+    "id": "usa-today",
+    "name": "USA Today",
+    "description": "Get the latest national, international, and political news at USATODAY.com.",
+    "url": "http://www.usatoday.com/news",
+    "category": "general"
+  },
+  {
+    "id": "vice-news",
+    "name": "Vice News",
+    "description": "Vice News is Vice Media, Inc.'s current affairs channel, known for its bold approach and coverage of under-reported stories.",
+    "url": "https://news.vice.com",
+    "category": "general"
+  },
+  {
+    "id": "wired",
+    "name": "Wired",
+    "description": "Wired is a monthly American magazine, published in print and online, that focuses on how emerging technologies affect culture, the economy, and politics.",
+    "url": "https://www.wired.com",
+    "category": "technology"
+  },
+  {
+    "id": "wired-de",
+    "name": "Wired.de",
+    "description": "Wired reports on how emerging technologies affect culture, the economy and politics.",
+    "url": "https://www.wired.de",
+    "category": "technology"
+  },
+  {
+    "id": "wirtschafts-woche",
+    "name": "Wirtschafts Woche",
+    "description": "Das Online-Portal des führenden Wirtschaftsmagazins bietet aktuelle Nachrichten zu Unternehmen, Finanzen, Erfolg und Technik.",
+    "url": "http://www.wiwo.de",
+    "category": "business"
+  },
+  {
+    "id": "xinhua-net",
+    "name": "Xinhua Net",
+    "description": "中国主要重点新闻网站，依托新华社遍布全球的采编网络，记者遍布世界100多个国家和地区，地方频道分布全国，及时播发国内外重要新闻和重大突发事件，受众覆盖200多个国家和地区。",
+    "url": "http://xinhuanet.com/",
+    "category": "general"
+  },
+  {
+    "id": "ynet",
+    "name": "Ynet",
+    "description": "ynet דף הבית: אתר החדשות המוביל בישראל מבית ידיעות אחרונות. חדשות עדכניות מהארץ ומהעולם, ספורט, כלכלה, מדע וטבע, כל מה שקורה וכל מה שמעניין.",
+    "url": "http://www.ynet.co.il",
+    "category": "general"
+  }
+,
+{
+        "id": "talksport",
+        "name": "TalkSport",
+        "description": "Tune in to the world's biggest sports radio station for the latest sports news, transfer rumours & exclusive interviews.",
+        "url": "http://talksport.com",
+        "category": "sports"
+    },
+    {
+        "id": "techcrunch",
+        "name": "TechCrunch",
+        "description": "TechCrunch is a leading technology media property, dedicated to obsessively profiling startups, reviewing new Internet products, and breaking tech news.",
+        "url": "https://techcrunch.com",
+        "category": "technology"
+    },
+    {
+        "id": "techcrunch-cn",
+        "name": "TechCrunch (CN)",
+        "description": "TechCrunch is a leading technology media property, dedicated to obsessively profiling startups, reviewing new Internet products, and breaking tech news.",
+        "url": "https://techcrunch.cn",
+        "category": "technology"
+    },
+    {
+        "id": "techradar",
+        "name": "TechRadar",
+        "description": "The latest technology news and reviews, covering computing, home entertainment systems, gadgets and more.",
+        "url": "https://www.techradar.com",
+        "category": "technology"
+    },
+    {
+        "id": "the-american-conservative",
+        "name": "The American Conservative",
+        "description": "Realism and reform. A new voice for a new generation of conservatives.",
+        "url": "http://www.theamericanconservative.com/",
+        "category": "general"
+    },
+    {
+        "id": "the-globe-and-mail",
+        "name": "The Globe And Mail",
+        "description": "The Globe and Mail offers the most authoritative news in Canada, featuring national and international news.",
+        "url": "https://www.theglobeandmail.com",
+        "category": "general"
+    },
+    {
+        "id": "the-hill",
+        "name": "The Hill",
+        "description": "The Hill is a top US political website, read by the White House and more lawmakers than any other site — vital for policy, politics and election campaigns.",
+        "url": "https://thehill.com",
+        "category": "general"
+    },
+    {
+        "id": "the-hindu",
+        "name": "The Hindu",
+        "description": "The Hindu: Latest news, analysis, comment, in-depth reporting, arts, cinema and more from India's national newspaper.",
+        "url": "http://www.thehindu.com",
+        "category": "general"
+    },
+    {
+        "id": "the-huffington-post",
+        "name": "The Huffington Post",
+        "description": "The Huffington Post is a politically liberal American news website and blog, featuring columnists and various topics.",
+        "url": "http://www.huffingtonpost.com",
+        "category": "general"
+    },
+    {
+        "id": "the-irish-times",
+        "name": "The Irish Times",
+        "description": "The Irish Times online. Latest news including sport, analysis, business, weather and more from the definitive brand of quality news in Ireland.",
+        "url": "https://www.irishtimes.com",
+        "category": "general"
+    },
+    {
+        "id": "the-jerusalem-post",
+        "name": "The Jerusalem Post",
+        "description": "The Jerusalem Post is the leading online newspaper covering current news from the Middle East and all over the Jewish world.",
+        "url": "https://www.jpost.com/",
+        "category": "general"
+    },
+    {
+        "id": "the-lad-bible",
+        "name": "The Lad Bible",
+        "description": "The LAD Bible is one of the largest communities for entertainment and viral content in the world. Send us your funniest pictures and videos!",
+        "url": "https://www.theladbible.com",
+        "category": "entertainment"
+    },
+    {
+        "id": "the-next-web",
+        "name": "The Next Web",
+        "description": "The Next Web is one of the world’s largest online publications that delivers news and analysis on Internet technology, business and culture.",
+        "url": "http://thenextweb.com",
+        "category": "technology"
+    },
+    {
+        "id": "the-sport-bible",
+        "name": "The Sport Bible",
+        "description": "TheSPORTbible is one of the largest communities for sports fans, bringing you the latest news and viral content. Send us your sporting pictures and videos!",
+        "url": "https://www.thesportbible.com",
+        "category": "sports"
+    },
+    {
+        "id": "the-times-of-india",
+        "name": "The Times of India",
+        "description": "Times of India brings the Latest News and Top Breaking headlines on Politics and Current Affairs in India and around the World.",
+        "url": "http://timesofindia.indiatimes.com",
+        "category": "general"
+    },
+    {
+        "id": "the-verge",
+        "name": "The Verge",
+        "description": "The Verge covers the intersection of technology, science, art, and culture.",
+        "url": "http://www.theverge.com",
+        "category": "technology"
+    },
+    {
+        "id": "the-wall-street-journal",
+        "name": "The Wall Street Journal",
+        "description": "WSJ online coverage of breaking news and current headlines from the US and around the world. Top stories, photos, videos, detailed analysis and in-depth reporting.",
+        "url": "https://www.wsj.com",
+        "category": "business"
+    },
+    {
+        "id": "the-washington-post",
+        "name": "The Washington Post",
+        "description": "Breaking news and analysis on politics, business, world national news, entertainment, and more.",
+        "url": "https://www.washingtonpost.com",
+        "category": "general"
+    },
+    {
+        "id": "the-washington-times",
+        "name": "The Washington Times",
+        "description": "The Washington Times delivers breaking news and commentary on the issues that affect the future of our nation.",
+        "url": "https://www.washingtontimes.com/",
+        "category": "general"
+    },
+    {
+        "id": "time",
+        "name": "Time",
+        "description": "Breaking news and analysis from TIME.com. Politics, world news, photos, video, tech reviews, health, science and entertainment news.",
+        "url": "http://time.com",
+        "category": "general"
+    },
+    {
+        "id": "usa-today",
+        "name": "USA Today",
+        "description": "Get the latest national, international, and political news at USATODAY.com.",
+        "url": "http://www.usatoday.com/news",
+        "category": "general"
+    },
+    {
+        "id": "vice-news",
+        "name": "Vice News",
+        "description": "Vice News is Vice Media, Inc.'s current affairs channel, known for its bold approach and coverage of under-reported stories.",
+        "url": "https://news.vice.com",
+        "category": "general"
+    },
+    {
+        "id": "wired",
+        "name": "Wired",
+        "description": "Wired is a monthly American magazine, published in print and online, that focuses on how emerging technologies affect culture, the economy, and politics.",
+        "url": "https://www.wired.com",
+        "category": "technology"
+    },
+    {
+        "id": "wired-de",
+        "name": "Wired.de",
+        "description": "Wired reports on how emerging technologies affect culture, the economy and politics.",
+        "url": "https://www.wired.de",
+        "category": "technology"
+    },
+    {
+        "id": "wirtschafts-woche",
+        "name": "Wirtschafts Woche",
+        "description": "Das Online-Portal des führenden Wirtschaftsmagazins bietet aktuelle Nachrichten zu Unternehmen, Finanzen, Erfolg und Technik.",
+        "url": "http://www.wiwo.de",
+        "category": "business"
+    },
+    {
+        "id": "xinhua-net",
+        "name": "Xinhua Net",
+        "description": "中国主要重点新闻网站，依托新华社遍布全球的采编网络，记者遍布世界100多个国家和地区，地方频道分布全国，及时播发国内外重要新闻和重大突发事件，受众覆盖200多个国家和地区。",
+        "url": "http://xinhuanet.com/",
+        "category": "general"
+    },
+    {
+        "id": "ynet",
+        "name": "Ynet",
+        "description": "ynet דף הבית: אתר החדשות המוביל בישראל מבית ידיעות אחרונות. חדשות עדכניות מהארץ ומהעולם, ספורט, כלכלה, מדע וטבע, כל מה שקורה וכל מה שמעניין.",
+        "url": "http://www.ynet.co.il",
+        "category": "general"
+    },
+
+  {
     "id": "abc-news",
     "name": "ABC News",
     "description": "Your trusted source for breaking news, analysis, interviews, headlines, and videos at ABCNews.com.",
