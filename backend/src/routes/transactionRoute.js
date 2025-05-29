@@ -1,6 +1,6 @@
 import express from "express";
 import Expense from "../models/transaction.js";
-import data1 from "../routes/news_sources_127.json"
+import data from  "../routes/renDaata.js"
 const router = express.Router();
 router.post("/", async (req, res) => {
   try {
@@ -50,6 +50,6 @@ router.delete("/:id", async (req, res) => {
   }
 });
 router.get('/news-sources', (req, res) => {
-  res.json(data1);
+  res.json(data);
 });
 export default router;
