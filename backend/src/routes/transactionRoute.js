@@ -1,6 +1,6 @@
 import express from "express";
 import Expense from "../models/transaction.js";
-import data from  "../routes/renDaata.js"
+import {data} from  "../routes/renDaata.js"
 const router = express.Router();
 router.post("/", async (req, res) => {
   try {

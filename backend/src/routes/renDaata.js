@@ -1,4 +1,4 @@
-const data =[
+export const data =[
   {
     "id": "abc-news",
     "name": "ABC News",
