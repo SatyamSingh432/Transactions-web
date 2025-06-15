@@ -88,6 +88,8 @@ const Form = ({ expData = {}, setExpData, showbtn, title, btnName }) => {
                 type="date"
                 name="date"
                 id="username"
+                min="2025-01-01"
+                max="2025-12-31"
                 onChange={changeHandler}
                 value={expData.date || ""}
                 //   value="@peduarte"
