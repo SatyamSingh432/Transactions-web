@@ -47,7 +47,7 @@ export const login = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: user._id, email: user.email },
+      { id: user._id, email: user.email, username: user.username },
       process.env.JWT_SECRET,
       { expiresIn: "24h" }
     );
@@ -56,5 +56,23 @@ export const login = async (req, res) => {
   } catch (error) {
     console.error("Login error:", error);
     res.status(500).json({ message: "Server error during login" });
+  }
+};
+
+export const verifyUser = async (req, res) => {
+  const token = req.header("Authorization");
+  if (!token)
+    return res.status(401).json({ valid: false, message: "No token provided" });
+
+  try {
+    const verified = jwt.verify(token, process.env.JWT_SECRET);
+
+    res.json({
+      valid: true,
+      userId: verified.id,
+      username: verified.username,
+    });
+  } catch (err) {
+    res.status(401).json({ valid: false, message: "Invalid token" });
   }
 };

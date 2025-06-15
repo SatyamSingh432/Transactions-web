@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
+import Users from "./User.js";
 
 const Transaction = new mongoose.Schema({
+  user_id: { type: mongoose.Schema.Types.ObjectId, ref: "Users" },
   amount: { type: Number, required: true },
   date: { type: Date, required: true },
   time: {
