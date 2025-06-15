@@ -1,10 +1,14 @@
 import express from "express";
 import Expense from "../models/transaction.js";
-import {data} from  "../routes/renDaata.js"
+import { data } from "../routes/renDaata.js";
+import authenticateToken from "../middleware/authMiddleware.js";
+
 const router = express.Router();
-router.post("/", async (req, res) => {
+
+router.post("/", authenticateToken, async (req, res) => {
   try {
-    const transaction = new Expense(req.body);
+    console.log(req.user.id);
+    const transaction = new Expense({ user_id: req.user.id, ...req.body });
     const saved = await transaction.save();
     res.status(201).json(saved);
   } catch (err) {
@@ -12,7 +16,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/", authenticateToken, async (req, res) => {
   try {
     const { month } = req.query;
 
@@ -30,7 +34,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", authenticateToken, async (req, res) => {
   try {
     const updated = await Expense.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -41,7 +45,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticateToken, async (req, res) => {
   try {
     await Expense.findByIdAndDelete(req.params.id);
     res.json({ message: "Deleted successfully" });
@@ -49,7 +53,7 @@ router.delete("/:id", async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
-router.get('/news-sources', (req, res) => {
+router.get("/news-sources", (req, res) => {
   res.json(data);
 });
 export default router;
