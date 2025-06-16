@@ -19,7 +19,9 @@ router.get("/", authenticateToken, async (req, res) => {
   try {
     const { month } = req.query;
 
-    let transactions = await Expense.find().sort({ time: -1 });
+    let transactions = await Expense.find({ user_id: req.user.id }).sort({
+      time: -1,
+    });
 
     if (month) {
       transactions = transactions.filter((t) => {
@@ -35,9 +37,14 @@ router.get("/", authenticateToken, async (req, res) => {
 
 router.put("/:id", authenticateToken, async (req, res) => {
   try {
-    const updated = await Expense.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
+    const updated = await Expense.findByIdAndUpdate(
+      req.params.id,
+      req.body.formData,
+      {
+        new: true,
+      }
+    );
+
     res.json(updated);
   } catch (err) {
     res.status(400).json({ error: err.message });

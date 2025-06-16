@@ -12,9 +12,9 @@ const TransactionList = ({
   category = "",
 }) => {
   const deleteHandler = async () => {
-    console.log("dsad");
+    const token = localStorage.getItem("token");
     try {
-      const res = await deleteTransaction(id);
+      const res = await deleteTransaction(id, token);
       setDeleteMsg(res);
     } catch (error) {
       console.error(`error found during delete ${error}`);

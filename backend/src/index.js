@@ -1,13 +1,12 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
+import "dotenv/config";
 import mongoose from "mongoose";
 import transaction from "./routes/transactionRoute.js";
 import authRoute from "./routes/authRoutes.js";
-const app = express();
 
+const app = express();
 app.use(cors());
-dotenv.config();
 app.use(express.json());
 
 app.use("/api/transactionamt", transaction);

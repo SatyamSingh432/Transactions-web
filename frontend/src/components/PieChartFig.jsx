@@ -48,7 +48,6 @@ export default function PieChartFig({
           match.value += Number(ele.amount);
         }
       });
-      console.log(newData);
       setPieChartData(newData);
     }
   }, [fullData]);

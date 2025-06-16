@@ -43,7 +43,7 @@ export const addTransaction = async ({
   description,
   token,
 }) => {
-  console.log(token);
+  // console.log(amount, date, category, description, token);
   const res = await fetch(`${API_URL}/api/transactionamt`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: token },
@@ -66,6 +66,7 @@ export const getTransactions = async (token, month = null) => {
 };
 
 export const deleteTransaction = async (id, token) => {
+  // console.log(id, token);
   const res = await fetch(`${API_URL}/api/transactionamt/${id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json", Authorization: token },
@@ -73,11 +74,12 @@ export const deleteTransaction = async (id, token) => {
   return res.json();
 };
 
-export const updateTransaction = async (id, updatedData) => {
+export const updateTransaction = async ({ id, formData, token }) => {
+  console.log(formData);
   const res = await fetch(`${API_URL}/api/transactionamt/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json", Authorization: token },
-    body: JSON.stringify(updatedData),
+    body: JSON.stringify({ formData }),
   });
   return res.json();
 };

@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-// import { addTransaction } from "../utils/Apis";
 import { updateTransaction } from "../utils/Apis";
+
 import {
   Select,
   SelectContent,
@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
 import {
   Dialog,
   DialogContent,
@@ -20,6 +21,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -45,6 +47,7 @@ const EditForm = ({
 
   const changeHandler = async (e) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -54,8 +57,10 @@ const EditForm = ({
 
   const updateHandler = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token");
+    console.log(formData);
     try {
-      const res = await updateTransaction(id, formData);
+      const res = await updateTransaction({ id, formData, token });
       console.log("Transaction updated", res);
 
       if (res._id) {
