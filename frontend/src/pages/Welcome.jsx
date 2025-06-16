@@ -10,6 +10,7 @@ import PieChartFig from "../components/PieChartFig";
 import Indicator from "../components/Indicator";
 import ExpensesCard from "../components/ExpensesCard";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../components/ui/button";
 const Welcome = () => {
   const [expData, setExpData] = useState({
     amount: "",
@@ -66,6 +67,10 @@ const Welcome = () => {
     transactionDataList();
   }, [expData, month, deleteMsg]);
 
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
   return (
     <>
       {loading ? (
@@ -74,7 +79,12 @@ const Welcome = () => {
         </div>
       ) : (
         <div className="bg-gray-400  w-screen p-6">
-          <h1 className="text-2xl pb-4">Expense Tracker</h1>
+          <div className="flex justify-between">
+            <h1 className="text-2xl pb-4">Expense Tracker</h1>
+            <Button className="cursor-pointer" onClick={logoutHandler}>
+              Logout
+            </Button>
+          </div>
           <div className="w-full grid lg:grid-cols-[1.3fr_1.9fr_.8fr] gap-x-0 justify-center sm:grid-cols-1 sm:gap-x-2 md:grid-cols-[2fr_2fr] rounded-lg">
             <ExpensesCard pieChartData={pieChartData} />
             <div className="h-[200px] rounded-lg border-1">
