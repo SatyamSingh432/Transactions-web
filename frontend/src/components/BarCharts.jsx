@@ -42,7 +42,7 @@ const BarCharts = ({ listData }) => {
         <BarChart width={50} height={40} data={chartData}>
           <XAxis dataKey="name" />
           <YAxis />
-          <Bar dataKey="amt" fill="#8884d8" />
+          <Bar dataKey="amt" fill="#A000FF" />
         </BarChart>
       </ResponsiveContainer>
     </>

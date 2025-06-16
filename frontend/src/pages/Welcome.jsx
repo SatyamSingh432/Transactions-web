@@ -78,7 +78,7 @@ const Welcome = () => {
           <span className="inline-block w-12 h-12 border-4 border-black border-b-transparent rounded-full animate-spin" />
         </div>
       ) : (
-        <div className="bg-gray-400  w-screen p-6">
+        <div className="bg-white  w-screen p-6">
           <div className="flex justify-between">
             <h1 className="text-2xl pb-4">Expense Tracker</h1>
             <Button className="cursor-pointer" onClick={logoutHandler}>
@@ -87,7 +87,7 @@ const Welcome = () => {
           </div>
           <div className="w-full grid lg:grid-cols-[1.3fr_1.9fr_.8fr] gap-x-0 justify-center sm:grid-cols-1 sm:gap-x-2 md:grid-cols-[2fr_2fr] rounded-lg">
             <ExpensesCard pieChartData={pieChartData} />
-            <div className="h-[200px] rounded-lg border-1">
+            <div className="h-[200px] rounded-lg border-1 shadow-md">
               <BarCharts listData={fullData} />
             </div>
 
@@ -100,7 +100,7 @@ const Welcome = () => {
               <Indicator />
             </div>
           </div>
-          <div className="py-1 bg-white flex justify-center items-center rounded-lg">
+          <div className="py-1 bg-white border shadow-md py-2.5 flex justify-center items-center rounded-lg">
             <Form
               expData={expData}
               setExpData={setExpData}
@@ -111,20 +111,19 @@ const Welcome = () => {
           </div>
           <h1 className="text-2xl pb-4 pt-4">Transactions</h1>
           <div className="grid lg:grid-cols-[1fr_3fr] md:grid-cols-1 gap-4">
-            <div className="bg-white rounded-lg flex flex-col gap-2 p-4 border">
+            <div className="bg-white rounded-lg flex flex-col gap-2 p-4  shadow-md border">
               <h1 className="text-xl font-semibold">Recent Transactions</h1>
-              {typeof fullData === "string" &&
-                fullData.slice(0, 5).map((ele, index) => {
-                  return (
-                    <div key={index} className="border-2 rounded-sm p-1">
-                      {index + 1}. You spent{" "}
-                      <span className="font-semibold">{ele.amount}</span> $ on{" "}
-                      {ele.category}
-                    </div>
-                  );
-                })}
+              {fullData.slice(0, 5).map((ele, index) => {
+                return (
+                  <div key={index} className="border-2 rounded-sm p-1">
+                    {index + 1}. You spent{" "}
+                    <span className="font-semibold">{ele.amount}</span> $ on{" "}
+                    {ele.category}
+                  </div>
+                );
+              })}
             </div>
-            <div className="bg-white rounded-lg flex flex-col gap-4 p-4 ">
+            <div className="bg-white rounded-lg border flex shadow-md flex-col gap-4 p-4 ">
               <div className="w-full flex justify-end">
                 <SelectMonth setMonth={setMonth} className="bg-white-500 " />
               </div>

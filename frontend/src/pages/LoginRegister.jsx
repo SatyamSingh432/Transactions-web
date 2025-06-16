@@ -86,8 +86,8 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-400 flex items-center justify-center px-4">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <div className="min-h-screen  flex items-center justify-center px-4">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full border max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">
           {isLogin ? "Login" : "Register"}
         </h2>
@@ -148,7 +148,7 @@ const AuthPage = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+              className="w-full bg-black text-white py-2 cursor-pointer rounded-lg  transition"
             >
               Register
             </button>
@@ -183,7 +183,7 @@ const AuthPage = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+              className="w-full bg-black text-white py-2 rounded-lg   cursor-pointer transition"
             >
               Login
             </button>
@@ -194,7 +194,7 @@ const AuthPage = () => {
           {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
           <button
             type="button"
-            className="text-blue-600 font-semibold hover:underline"
+            className="text-blue-600 font-semibold hover:underline cursor-pointer"
             onClick={() => setIsLogin(!isLogin)}
           >
             {isLogin ? "Register" : "Login"}

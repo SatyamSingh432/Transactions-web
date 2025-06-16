@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import Users from "./User.js";
 
 const Transaction = new mongoose.Schema({
   user_id: { type: mongoose.Schema.Types.ObjectId, ref: "Users" },
@@ -16,5 +15,7 @@ const Transaction = new mongoose.Schema({
   },
   description: { type: String, required: true },
 });
+
 const Expense = mongoose.model("Expense", Transaction);
+
 export default Expense;

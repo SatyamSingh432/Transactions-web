@@ -21,7 +21,7 @@ const TransactionList = ({
     }
   };
   return (
-    <div className="grid grid-cols-2 xl:grid-cols-[1fr_2fr_0.5fr] sm:grid-cols-[1fr_3fr] md:grid-cols-[1fr_3fr] lg:grid-cols-[1fr_3fr] px-4 py-1 text-xs lg:gap-y-1 md:gap-y-2 sm:gap-y-2">
+    <div className="grid grid-cols-2  xl:grid-cols-[1fr_2fr_0.5fr] sm:grid-cols-[1fr_3fr] md:grid-cols-[1fr_3fr] lg:grid-cols-[1fr_3fr] px-4 py-1 text-xs lg:gap-y-1 md:gap-y-2 sm:gap-y-2">
       <div className="rounded-lg grid  justify-start gap-1  ">
         <div>
           <span className="text-sm font-semibold ">Amount :</span>{" "}
