@@ -9,6 +9,7 @@ import { getTransactions } from "../utils/Apis";
 import PieChartFig from "../components/PieChartFig";
 import Indicator from "../components/Indicator";
 import ExpensesCard from "../components/ExpensesCard";
+import { useNavigate } from "react-router-dom";
 const Welcome = () => {
   const [expData, setExpData] = useState({
     amount: "",
@@ -28,6 +29,16 @@ const Welcome = () => {
   const [fullData, setFullData] = useState([]);
   const [listData, setListData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/");
+    }
+  }, []);
+
   useEffect(() => {
     async function transactionDataList() {
       const token = localStorage.getItem("token");
@@ -40,6 +51,7 @@ const Welcome = () => {
     }
     transactionDataList();
   }, [listData]);
+
   useEffect(() => {
     async function transactionDataList() {
       const token = localStorage.getItem("token");
@@ -53,6 +65,7 @@ const Welcome = () => {
     }
     transactionDataList();
   }, [expData, month, deleteMsg]);
+
   return (
     <>
       {loading ? (

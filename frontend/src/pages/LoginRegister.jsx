@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { loginUser, registerUser } from "../utils/Apis";
+import { useState, useEffect } from "react";
+import { loginUser, registerUser, verifyToken } from "../utils/Apis";
 import { useNavigate } from "react-router-dom";
 
 const AuthPage = () => {
@@ -8,13 +8,31 @@ const AuthPage = () => {
     email: "",
     password: "",
   });
+
   const [registerForm, setRegisterForm] = useState({
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const token = localStorage.getItem("token");
+      console.log(token);
+      if (token) {
+        const res = await verifyToken(token);
+        if (res) {
+          navigate("/welcome");
+        }
+      }
+    };
+
+    checkAuth();
+  }, []);
+
   const navigate = useNavigate();
+
   const registerChangeHandler = (e) => {
     const { name, value } = e.target;
     setRegisterForm((prev) => ({
@@ -33,7 +51,7 @@ const AuthPage = () => {
 
   const loginFormSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login Form:", loginForm);
+    // console.log("Login Form:", loginForm);
     try {
       const res = await loginUser(loginForm);
       if (res) {
