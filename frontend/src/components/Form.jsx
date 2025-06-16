@@ -37,7 +37,8 @@ const Form = ({ expData = {}, setExpData, showbtn, title, btnName }) => {
   const addExpHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await addTransaction(expData);
+      let token = localStorage.getItem("token");
+      const res = await addTransaction(expData, token);
       console.log("Transaction added:", res);
       if (res._id) {
         setOpen(false);

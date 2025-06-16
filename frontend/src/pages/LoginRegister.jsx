@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { loginUser, registerUser } from "../utils/Apis";
+import { useNavigate } from "react-router-dom";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -7,12 +9,12 @@ const AuthPage = () => {
     password: "",
   });
   const [registerForm, setRegisterForm] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
-
+  const navigate = useNavigate();
   const registerChangeHandler = (e) => {
     const { name, value } = e.target;
     setRegisterForm((prev) => ({
@@ -29,14 +31,40 @@ const AuthPage = () => {
     }));
   };
 
-  const loginFormSubmit = (e) => {
+  const loginFormSubmit = async (e) => {
     e.preventDefault();
     console.log("Login Form:", loginForm);
+    try {
+      const res = await loginUser(loginForm);
+      if (res) {
+        navigate("/welcome");
+      }
+      setLoginForm({
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const registerFormSubmit = (e) => {
+  const registerFormSubmit = async (e) => {
     e.preventDefault();
     console.log("Register Form:", registerForm);
+    try {
+      const res = await registerUser(registerForm);
+      if (res) {
+        navigate("/welcome");
+      }
+      setRegisterForm({
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -52,10 +80,10 @@ const AuthPage = () => {
               <label className="block mb-1 font-medium">Name</label>
               <input
                 type="text"
-                name="name"
-                value={registerForm.name}
+                name="username"
+                value={registerForm.username}
                 onChange={registerChangeHandler}
-                autoComplete="name"
+                autoComplete="username"
                 required
                 className="w-full border px-3 py-2 rounded-lg"
                 placeholder="Enter your name"

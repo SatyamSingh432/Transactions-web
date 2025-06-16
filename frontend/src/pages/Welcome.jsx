@@ -30,8 +30,9 @@ const Welcome = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function transactionDataList() {
+      const token = localStorage.getItem("token");
       try {
-        const res = await getTransactions();
+        const res = await getTransactions(token);
         setFullData(res);
       } catch (error) {
         console.error("Failed to fetch transactions:", error);
@@ -41,8 +42,9 @@ const Welcome = () => {
   }, [listData]);
   useEffect(() => {
     async function transactionDataList() {
+      const token = localStorage.getItem("token");
       try {
-        const res = await getTransactions(month);
+        const res = await getTransactions(token, month);
         setListData(res);
         setLoading(false);
       } catch (error) {

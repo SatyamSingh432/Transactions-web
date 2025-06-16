@@ -7,7 +7,6 @@ const router = express.Router();
 
 router.post("/", authenticateToken, async (req, res) => {
   try {
-    console.log(req.user.id);
     const transaction = new Expense({ user_id: req.user.id, ...req.body });
     const saved = await transaction.save();
     res.status(201).json(saved);
