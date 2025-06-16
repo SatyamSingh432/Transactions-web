@@ -113,23 +113,20 @@ const Welcome = () => {
           <div className="grid lg:grid-cols-[1fr_3fr] md:grid-cols-1 gap-4">
             <div className="bg-white rounded-lg flex flex-col gap-2 p-4 border">
               <h1 className="text-xl font-semibold">Recent Transactions</h1>
-              {fullData.slice(0, 5).map((ele, index) => {
-                return (
-                  <div key={index} className="border-2 rounded-sm p-1">
-                    {index + 1}. You spent{" "}
-                    <span className="font-semibold">{ele.amount}</span> $ on{" "}
-                    {ele.category}
-                  </div>
-                );
-              })}
+              {typeof fullData === "string" &&
+                fullData.slice(0, 5).map((ele, index) => {
+                  return (
+                    <div key={index} className="border-2 rounded-sm p-1">
+                      {index + 1}. You spent{" "}
+                      <span className="font-semibold">{ele.amount}</span> $ on{" "}
+                      {ele.category}
+                    </div>
+                  );
+                })}
             </div>
             <div className="bg-white rounded-lg flex flex-col gap-4 p-4 ">
               <div className="w-full flex justify-end">
-                <SelectMonth
-                  setMonth={setMonth}
-                  // setListData={setListData}
-                  className="bg-white-500 "
-                />
+                <SelectMonth setMonth={setMonth} className="bg-white-500 " />
               </div>
 
               <ScrollArea className="h-50  rounded-md border ">
