@@ -1,19 +1,14 @@
 import express from "express";
 import cors from "cors";
-import "dotenv/config";
+import dotenv from "dotenv";
 import mongoose from "mongoose";
 import transaction from "./routes/transactionRoute.js";
 import authRoute from "./routes/authRoutes.js";
 
 const app = express();
+dotenv.config();
 
-app.use(
-  cors({
-    origin: "https://satyam-yardstick-transaction.netlify.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 
