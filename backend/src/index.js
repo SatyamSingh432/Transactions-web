@@ -6,7 +6,15 @@ import transaction from "./routes/transactionRoute.js";
 import authRoute from "./routes/authRoutes.js";
 
 const app = express();
-app.use(cors());
+
+app.use(
+  cors({
+    origin: "https://satyam-yardstick-transaction.netlify.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 app.use("/api/transactionamt", transaction);
