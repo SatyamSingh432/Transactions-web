@@ -42,6 +42,8 @@ const Welcome = () => {
           localStorage.removeItem("token");
           navigate("/");
         }
+      } else {
+        navigate("/");
       }
     };
 
