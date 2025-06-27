@@ -51,11 +51,13 @@ const Welcome = () => {
   useEffect(() => {
     async function transactionDataList() {
       const token = localStorage.getItem("token");
-      try {
-        const res = await getTransactions(token);
-        setFullData(res);
-      } catch (error) {
-        console.error("Failed to fetch transactions:", error);
+      if (token) {
+        try {
+          const res = await getTransactions(token);
+          setFullData(res);
+        } catch (error) {
+          console.error("Failed to fetch transactions:", error);
+        }
       }
     }
     transactionDataList();
