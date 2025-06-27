@@ -22,8 +22,10 @@ const AuthPage = () => {
       console.log(token);
       if (token) {
         const res = await verifyToken(token);
-        if (res) {
+        if (res.valid) {
           navigate("/welcome");
+        } else {
+          localStorage.removeItem("token");
         }
       }
     };

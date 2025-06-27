@@ -5,7 +5,7 @@ import TransactionList from "../components/TransactionList";
 import BarCharts from "../components/BarCharts";
 import Form from "../components/Form";
 import SelectMonth from "../components/SelectMonth";
-import { getTransactions } from "../utils/Apis";
+import { getTransactions, verifyToken } from "../utils/Apis";
 import PieChartFig from "../components/PieChartFig";
 import Indicator from "../components/Indicator";
 import ExpensesCard from "../components/ExpensesCard";
@@ -34,10 +34,18 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      navigate("/");
-    }
+    const checkAuth = async () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        const res = await verifyToken(token);
+        if (!res.valid) {
+          localStorage.removeItem("token");
+          navigate("/");
+        }
+      }
+    };
+
+    checkAuth();
   }, []);
 
   useEffect(() => {
